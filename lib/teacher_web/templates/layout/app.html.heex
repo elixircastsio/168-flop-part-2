@@ -1,0 +1,7 @@
+<main class="bg-white mx-auto max-w-[90%] p-10 my-10">
+  <div class="mx-auto max-w-2xl">
+  <p class="alert alert-info" role="alert"><%= Phoenix.Flash.get(@flash, :info) %></p>
+  <p class="alert alert-danger" role="alert"><%= Phoenix.Flash.get(@flash, :error) %></p>
+  <%= @inner_content %>
+  </div>
+</main>

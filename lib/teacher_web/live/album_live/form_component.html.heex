@@ -1,0 +1,42 @@
+<div class="w-full">
+  <h2 class="text-lg font-semibold leading-8"><%= @title %></h2>
+  <.form
+    :let={f}
+    for={@changeset}
+    id="album-form"
+    phx-target={@myself}
+    phx-change="validate"
+    phx-submit="save">
+    <div class="mb-4">
+      <%= label f, :title, class: "block mb-2" %>
+      <%= text_input f, :title, class: "border rounded w-full py-2 px-3" %>
+      <%= error_tag f, :title %>
+    </div>
+    <div class="mt-4">
+      <%= label f, :artist, class: "block mb-2" %>
+      <%= text_input f, :artist, class: "border rounded w-full py-2 px-3" %>
+      <%= error_tag f, :artist %>
+    </div>
+    <div class="mt-4">
+      <%= label f, :summary, class: "block mb-2" %>
+      <%= textarea f, :summary, class: "border rounded w-full py-2 px-3" %>
+      <%= error_tag f, :summary %>
+    </div>
+    <div class="mt-4">
+      <%= label f, :year, class: "block mb-2" %>
+      <%= text_input f, :year, class: "border rounded w-full py-2 px-3" %>
+      <%= error_tag f, :year %>
+    </div>
+    <div class="mt-4">
+      <%= label f, :genre, class: "block mb-2" %>
+      <%= select f, :genre,
+        Teacher.Recordings.Genre.genres(),
+        prompt: "Choose genre",
+        class: "border rounded w-full py-2 px-3" %>
+      <%= error_tag f, :genre %>
+    </div>
+    <div class="mt-4">
+      <%= submit "Save", class: "bg-blue-700 w-full rounded text-white py-1 px-4", phx_disable_with: "Saving..." %>
+    </div>
+  </.form>
+</div>

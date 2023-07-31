@@ -1,0 +1,35 @@
+<h1 class="text-center text-xl mb-6 font-semibold leading-8">
+  Show Album
+</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @album.title %>
+  </li>
+
+  <li>
+    <strong>Artist:</strong>
+    <%= @album.artist %>
+  </li>
+
+  <li>
+    <strong>Summary:</strong>
+    <%= @album.summary %>
+  </li>
+
+  <li>
+    <strong>Year:</strong>
+    <%= @album.year %>
+  </li>
+
+  <li>
+    <strong>Genre:</strong>
+    <%= @album.genre %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.album_show_path(@socket, :edit, @album), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.album_index_path(@socket, :index) %></span>

@@ -1,0 +1,17 @@
+<h1 class="text-center text-xl mb-6 font-semibold leading-8">
+  Listing Albums
+</h1>
+<Flop.Phoenix.table
+  opts={TeacherWeb.FlopConfig.table_opts()}
+  items={@albums}
+  meta={@meta}
+  path={~p"/albums"}>
+  <:col :let={album} label="Title" field={:title}><%= album.title %></:col>
+  <:col :let={album} label="Artist" field={:artist}><%= album.artist %></:col>
+  <:col :let={album} label="Summary" field={:summary}><%= album.summary %></:col>
+  <:col :let={album} label="Year" field={:year}><%= album.year %></:col>
+</Flop.Phoenix.table>
+<Flop.Phoenix.pagination
+  opts={TeacherWeb.FlopConfig.pagination_opts()}
+  meta={@meta}
+  path={~p"/albums"} />
